@@ -1,0 +1,1285 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리 톡방 말버릇 분석</title>
+    <style>
+        body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background-color: #f0f2f6; margin: 0; padding: 20px; }
+        .container { max_width: 800px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; margin-bottom: 10px; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        .member-card { border: 1px solid #eee; border-radius: 10px; padding: 20px; margin-bottom: 20px; background-color: #fff; }
+        .member-name { font-size: 1.5em; font-weight: bold; color: #ff4b4b; margin-bottom: 15px; border-bottom: 2px solid #ff4b4b; display: inline-block; padding-bottom: 5px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #555; width: 60px; }
+        .bar-container { background-color: #e9ecef; border-radius: 5px; overflow: hidden; height: 20px; width: 100%; }
+        .bar { background-color: #ff4b4b; height: 100%; text-align: right; line-height: 20px; color: white; font-size: 12px; padding-right: 5px; }
+        .word { font-weight: bold; color: #333; }
+        .footer { text-align: center; margin-top: 50px; color: #999; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 우리 톡방 말버릇 Top 10</h1>
+        <p class="subtitle">누가 어떤 말을 가장 많이 썼을까요?</p>
+
+        <div class="member-card">
+            <div class="member-name">서보광</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">괜찮</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>6340회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">하동</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 72.20820189274448%;"></div>
+                            </div>
+                            <span>4578회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">씨발</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 41.277602523659304%;"></div>
+                            </div>
+                            <span>2617회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 29.21135646687697%;"></div>
+                            </div>
+                            <span>1852회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 25.899053627760253%;"></div>
+                            </div>
+                            <span>1642회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 23.62776025236593%;"></div>
+                            </div>
+                            <span>1498회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">그냥</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 21.98738170347003%;"></div>
+                            </div>
+                            <span>1394회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">영준</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 21.561514195583594%;"></div>
+                            </div>
+                            <span>1367회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">무섭</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 19.006309148264986%;"></div>
+                            </div>
+                            <span>1205회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">사람</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 17.981072555205046%;"></div>
+                            </div>
+                            <span>1140회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">신영준</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>2679회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 48.33893243747667%;"></div>
+                            </div>
+                            <span>1295회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 36.43150429264651%;"></div>
+                            </div>
+                            <span>976회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">나오</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 33.70660694288914%;"></div>
+                            </div>
+                            <span>903회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">ㅇㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 32.960059723777526%;"></div>
+                            </div>
+                            <span>883회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">검색</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 31.8775662560657%;"></div>
+                            </div>
+                            <span>854회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">으로</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 31.13101903695409%;"></div>
+                            </div>
+                            <span>834회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 31.093691675998507%;"></div>
+                            </div>
+                            <span>833회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">그렇</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 30.79507278835386%;"></div>
+                            </div>
+                            <span>825회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">그냥</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 30.49645390070922%;"></div>
+                            </div>
+                            <span>817회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">정지훈</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>1040회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 94.90384615384615%;"></div>
+                            </div>
+                            <span>987회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 81.53846153846153%;"></div>
+                            </div>
+                            <span>848회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">으로</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 62.980769230769226%;"></div>
+                            </div>
+                            <span>655회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 56.82692307692307%;"></div>
+                            </div>
+                            <span>591회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">이거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 52.5%;"></div>
+                            </div>
+                            <span>546회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">그렇</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 50.480769230769226%;"></div>
+                            </div>
+                            <span>525회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">너무</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 49.23076923076923%;"></div>
+                            </div>
+                            <span>512회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">사람</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 47.30769230769231%;"></div>
+                            </div>
+                            <span>492회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">나오</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 45.38461538461539%;"></div>
+                            </div>
+                            <span>472회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">김동하</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>2574회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 56.060606060606055%;"></div>
+                            </div>
+                            <span>1443회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 39.08313908313909%;"></div>
+                            </div>
+                            <span>1006회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">그거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 38.81118881118881%;"></div>
+                            </div>
+                            <span>999회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 28.3993783993784%;"></div>
+                            </div>
+                            <span>731회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">지금</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 28.166278166278165%;"></div>
+                            </div>
+                            <span>725회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">으로</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 27.233877233877234%;"></div>
+                            </div>
+                            <span>701회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">ㅇㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 26.806526806526808%;"></div>
+                            </div>
+                            <span>690회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">이거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 26.767676767676768%;"></div>
+                            </div>
+                            <span>689회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">까지</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 25.524475524475527%;"></div>
+                            </div>
+                            <span>657회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">김종진</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>185회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 94.05405405405406%;"></div>
+                            </div>
+                            <span>174회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">영준</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 57.2972972972973%;"></div>
+                            </div>
+                            <span>106회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">가능</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 56.21621621621622%;"></div>
+                            </div>
+                            <span>104회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">지훈</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 55.13513513513514%;"></div>
+                            </div>
+                            <span>102회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">나오</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 48.64864864864865%;"></div>
+                            </div>
+                            <span>90회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">어디</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 48.64864864864865%;"></div>
+                            </div>
+                            <span>90회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 48.10810810810811%;"></div>
+                            </div>
+                            <span>89회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">까지</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 46.48648648648649%;"></div>
+                            </div>
+                            <span>86회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">언제</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 42.16216216216216%;"></div>
+                            </div>
+                            <span>78회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">김현수</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>423회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">ㅇㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 71.8676122931442%;"></div>
+                            </div>
+                            <span>304회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 49.1725768321513%;"></div>
+                            </div>
+                            <span>208회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">존나</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 48.226950354609926%;"></div>
+                            </div>
+                            <span>204회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">시발</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 47.99054373522459%;"></div>
+                            </div>
+                            <span>203회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">이거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 47.5177304964539%;"></div>
+                            </div>
+                            <span>201회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 46.335697399527184%;"></div>
+                            </div>
+                            <span>196회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 44.44444444444444%;"></div>
+                            </div>
+                            <span>188회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">나오</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 43.73522458628842%;"></div>
+                            </div>
+                            <span>185회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">그거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 43.498817966903076%;"></div>
+                            </div>
+                            <span>184회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">이창민</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>3858회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 64.85225505443235%;"></div>
+                            </div>
+                            <span>2502회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 52.255054432348366%;"></div>
+                            </div>
+                            <span>2016회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">그거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 51.39968895800933%;"></div>
+                            </div>
+                            <span>1983회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">으로</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 50.59616381544841%;"></div>
+                            </div>
+                            <span>1952회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">그냥</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 39.89113530326594%;"></div>
+                            </div>
+                            <span>1539회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">검색</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 38.93208916537066%;"></div>
+                            </div>
+                            <span>1502회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">저거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 38.517366511145674%;"></div>
+                            </div>
+                            <span>1486회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">나오</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 36.236391912908246%;"></div>
+                            </div>
+                            <span>1398회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">이거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 35.48470710212545%;"></div>
+                            </div>
+                            <span>1369회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">권상우</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>1373회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 84.48652585579023%;"></div>
+                            </div>
+                            <span>1160회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">에서</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 60.451565914056815%;"></div>
+                            </div>
+                            <span>830회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">으로</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 59.57756737072105%;"></div>
+                            </div>
+                            <span>818회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 59.28623452294246%;"></div>
+                            </div>
+                            <span>814회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">사람</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 58.63073561544064%;"></div>
+                            </div>
+                            <span>805회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">존나</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 51.93008011653314%;"></div>
+                            </div>
+                            <span>713회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">너무</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 50.7647487254188%;"></div>
+                            </div>
+                            <span>697회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">우리</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 45.884923525127455%;"></div>
+                            </div>
+                            <span>630회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">지금</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 44.57392571012382%;"></div>
+                            </div>
+                            <span>612회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="member-card">
+            <div class="member-name">김대욱</div>
+            <table>
+                <tr>
+                    <th>순위</th>
+                    <th>자주 쓰는 말</th>
+                    <th>빈도수</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">ㄹㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 100.0%;"></div>
+                            </div>
+                            <span>2080회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">아니</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 89.5673076923077%;"></div>
+                            </div>
+                            <span>1863회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">시발</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 63.26923076923077%;"></div>
+                            </div>
+                            <span>1316회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">ㅇㅇ</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 51.87500000000001%;"></div>
+                            </div>
+                            <span>1079회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">새끼</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 40.38461538461539%;"></div>
+                            </div>
+                            <span>840회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">그거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 40.19230769230769%;"></div>
+                            </div>
+                            <span>836회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">오늘</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 38.70192307692308%;"></div>
+                            </div>
+                            <span>805회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">씨발</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 34.13461538461539%;"></div>
+                            </div>
+                            <span>710회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">그냥</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 34.03846153846154%;"></div>
+                            </div>
+                            <span>708회</span>
+                        </div>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">이거</td>
+                    <td>
+                        <div style="display: flex; align-items: center;">
+                            <div class="bar-container" style="width: 70%; margin-right: 10px;">
+                                <div class="bar" style="width: 30.865384615384617%;"></div>
+                            </div>
+                            <span>642회</span>
+                        </div>
+                    </td>
+                </tr>
+            </table></div>
+        <div class="footer">Created with Python & GitHub Pages</div>
+    </div>
+</body>
+</html>
