@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>우리 톡방 말버릇 분석</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        
+        body { 
+            font-family: 'Pretendard', sans-serif;
+            background-color: #b2c7da; /* 카톡 배경색 */
+            margin: 0; padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .header {
+            background-color: #b2c7da;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky; top: 0; z-index: 99;
+        }
+        
+        .header h1 {
+            font-size: 15px; color: #484c50; margin: 0;
+            background: rgba(0,0,0,0.08);
+            padding: 6px 12px; border-radius: 12px;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 500px; margin: 0 auto;
+            padding: 0 16px 40px 16px;
+            min-height: 100vh;
+        }
+
+        .profile-group { margin-bottom: 30px; }
+
+        .date-divider {
+            text-align: center; margin: 20px 0;
+            font-size: 11px; color: #fff;
+            background: rgba(0,0,0,0.15);
+            display: inline-block;
+            padding: 4px 10px; border-radius: 10px;
+            position: relative; left: 50%; transform: translateX(-50%);
+        }
+
+        .chat-row { display: flex; align-items: flex-start; }
+
+        .profile-img {
+            width: 40px; height: 40px;
+            border-radius: 16px;
+            background-color: #fff;
+            margin-right: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: bold; color: #333;
+            border: 1px solid rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .msg-container { display: flex; flex-direction: column; max-width: 75%; }
+        .user-name { font-size: 12px; color: #484c50; margin-bottom: 4px; margin-left: 2px; }
+
+        .bubble-wrapper { display: flex; align-items: flex-end; margin-bottom: 5px; }
+
+        .bubble {
+            background-color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 3px 12px 12px 12px;
+            font-size: 14px; line-height: 1.4;
+            color: #282828;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.03);
+            word-break: break-all;
+        }
+
+        .count-tag {
+            font-size: 10px; color: #666; margin-left: 5px; margin-bottom: 2px; min-width: 30px;
+        }
+        
+        .rank-badge { color: #ff4b4b; font-weight: 800; font-size: 11px; margin-right: 3px; }
+
+        ::-webkit-scrollbar { display: none; }
+        .footer { text-align: center; font-size: 10px; color: #6e7377; margin-top: 30px; opacity: 0.6; padding-bottom: 20px;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>말버릇 분석기</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="profile-group">
+            <div class="date-divider">서보광</div>
+            <div class="chat-row">
+                <div class="profile-img">서</div>
+                <div class="msg-container">
+                    <div class="user-name">서보광</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> 씨발</div>
+                        <span class="count-tag">299회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> 시발</div>
+                        <span class="count-tag">201회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> [네이버 지도]</div>
+                        <span class="count-tag">32회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 개웃기네</div>
+                        <span class="count-tag">36회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> 미친</div>
+                        <span class="count-tag">31회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 말하는거가</div>
+                        <span class="count-tag">21회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 아 ㅋㅋㅋ</div>
+                        <span class="count-tag">15회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 영준이한테</div>
+                        <span class="count-tag">14회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> 미안...</div>
+                        <span class="count-tag">14회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 잘모르겠다</div>
+                        <span class="count-tag">23회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">신영준</div>
+            <div class="chat-row">
+                <div class="profile-img">신</div>
+                <div class="msg-container">
+                    <div class="user-name">신영준</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> 시발</div>
+                        <span class="count-tag">161회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> 개웃기노</div>
+                        <span class="count-tag">114회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> 미친</div>
+                        <span class="count-tag">77회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> ㅅㅂ</div>
+                        <span class="count-tag">61회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> 아 그래?</div>
+                        <span class="count-tag">51회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 지리긴하네</div>
+                        <span class="count-tag">52회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 말하는거가</div>
+                        <span class="count-tag">22회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 나도 근데</div>
+                        <span class="count-tag">17회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> ㅁㅊ</div>
+                        <span class="count-tag">23회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 아니 근데</div>
+                        <span class="count-tag">18회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">정지훈</div>
+            <div class="chat-row">
+                <div class="profile-img">정</div>
+                <div class="msg-container">
+                    <div class="user-name">정지훈</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> ㅁㅊ</div>
+                        <span class="count-tag">83회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> 음성메시지</div>
+                        <span class="count-tag">31회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> [네이버 지도]</div>
+                        <span class="count-tag">18회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 잘모르겠다</div>
+                        <span class="count-tag">25회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> 생각했는데</div>
+                        <span class="count-tag">14회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 나쁘지않지</div>
+                        <span class="count-tag">10회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 오 ㄹㅇ?</div>
+                        <span class="count-tag">10회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 어이가없네</div>
+                        <span class="count-tag">7회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> 감사합니다</div>
+                        <span class="count-tag">7회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 미친</div>
+                        <span class="count-tag">7회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">김동하</div>
+            <div class="chat-row">
+                <div class="profile-img">김</div>
+                <div class="msg-container">
+                    <div class="user-name">김동하</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> ㅅㅂ</div>
+                        <span class="count-tag">854회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> 개웃기네</div>
+                        <span class="count-tag">259회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> 아 ㄹㅇ?</div>
+                        <span class="count-tag">124회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 시발</div>
+                        <span class="count-tag">214회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> ㅁㅊ</div>
+                        <span class="count-tag">87회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 아 그래?</div>
+                        <span class="count-tag">62회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 아 ㅋㅋㅋ</div>
+                        <span class="count-tag">185회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 근데 진짜</div>
+                        <span class="count-tag">24회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> ㅈ나 웃기네</div>
+                        <span class="count-tag">23회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 아 진짜?</div>
+                        <span class="count-tag">39회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">김종진</div>
+            <div class="chat-row">
+                <div class="profile-img">김</div>
+                <div class="msg-container">
+                    <div class="user-name">김종진</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> ㅁㅊ</div>
+                        <span class="count-tag">51회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> ㅋㅋㅋㅋㅋㅋㅋㅋㅋ̆̎</div>
+                        <span class="count-tag">83회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> ㅅㅂ</div>
+                        <span class="count-tag">30회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 잠이 안오네</div>
+                        <span class="count-tag">8회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> 감사합니다</div>
+                        <span class="count-tag">6회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 미친</div>
+                        <span class="count-tag">5회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 이게 나야</div>
+                        <span class="count-tag">3회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 자야하는데</div>
+                        <span class="count-tag">5회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> 시발 ㅋㅋㅋㅋㅋ</div>
+                        <span class="count-tag">13회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 24살 ㅅ ㅅ</div>
+                        <span class="count-tag">3회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">김현수</div>
+            <div class="chat-row">
+                <div class="profile-img">김</div>
+                <div class="msg-container">
+                    <div class="user-name">김현수</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> 시발</div>
+                        <span class="count-tag">113회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> ㅁㅊ</div>
+                        <span class="count-tag">98회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> ㅅㅂ</div>
+                        <span class="count-tag">64회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 미친</div>
+                        <span class="count-tag">42회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> 존나웃기네</div>
+                        <span class="count-tag">49회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 보고ㅓㅇ이</div>
+                        <span class="count-tag">23회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 씨발</div>
+                        <span class="count-tag">56회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 빨리 줍줍 하세요!!</div>
+                        <span class="count-tag">10회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> ㅈㄴ</div>
+                        <span class="count-tag">26회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 개웃기노</div>
+                        <span class="count-tag">8회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">이창민</div>
+            <div class="chat-row">
+                <div class="profile-img">이</div>
+                <div class="msg-container">
+                    <div class="user-name">이창민</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> ㅈㄴ</div>
+                        <span class="count-tag">640회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> ㅁㅊ</div>
+                        <span class="count-tag">291회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> 시발</div>
+                        <span class="count-tag">310회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 개웃기네</div>
+                        <span class="count-tag">158회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> ㅅㅂ</div>
+                        <span class="count-tag">91회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 그새끼</div>
+                        <span class="count-tag">141회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 존나</div>
+                        <span class="count-tag">55회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 라고할뻔~</div>
+                        <span class="count-tag">46회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> 먹고싶은데</div>
+                        <span class="count-tag">94회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 음성메시지</div>
+                        <span class="count-tag">30회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">권상우</div>
+            <div class="chat-row">
+                <div class="profile-img">권</div>
+                <div class="msg-container">
+                    <div class="user-name">권상우</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> 시발</div>
+                        <span class="count-tag">250회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> ㅅㅂ</div>
+                        <span class="count-tag">136회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> 개웃기네</div>
+                        <span class="count-tag">167회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> 미친</div>
+                        <span class="count-tag">55회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> ㅁㅊ</div>
+                        <span class="count-tag">37회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> 존나</div>
+                        <span class="count-tag">74회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 아니 근데</div>
+                        <span class="count-tag">26회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 씨발</div>
+                        <span class="count-tag">24회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> 아 ㄹㅇ?</div>
+                        <span class="count-tag">22회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 근데 진짜</div>
+                        <span class="count-tag">11회</span>
+                    </div>
+            </div></div></div>
+        <div class="profile-group">
+            <div class="date-divider">김대욱</div>
+            <div class="chat-row">
+                <div class="profile-img">김</div>
+                <div class="msg-container">
+                    <div class="user-name">김대욱</div>
+        
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#1</span> 시발</div>
+                        <span class="count-tag">984회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#2</span> ㅅㅂ</div>
+                        <span class="count-tag">875회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#3</span> 씨발</div>
+                        <span class="count-tag">449회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#4</span> ㅈㄴ</div>
+                        <span class="count-tag">327회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#5</span> 미친</div>
+                        <span class="count-tag">162회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#6</span> ㅁㅊ</div>
+                        <span class="count-tag">122회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#7</span> 개웃기네</div>
+                        <span class="count-tag">103회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#8</span> 이새끼</div>
+                        <span class="count-tag">221회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#9</span> 라이브톡 시작</div>
+                        <span class="count-tag">41회</span>
+                    </div>
+            
+                    <div class="bubble-wrapper">
+                        <div class="bubble"><span class="rank-badge">#10</span> 음성메시지</div>
+                        <span class="count-tag">28회</span>
+                    </div>
+            </div></div></div>
+        <div class="footer">Created with Python</div>
+    </div>
+</body>
+</html>
